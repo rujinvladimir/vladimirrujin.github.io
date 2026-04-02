@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vladimir Rujin — AI Evaluation Specialist</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy:       #0D1F3C;
+      --navy-mid:   #1B4F8A;
+      --sky:        #5B9BD5;
+      --bg:         #F4F7FA;
+      --white:      #FFFFFF;
+      --charcoal:   #2D3436;
+      --muted:      #6C7A89;
+      --border:     #DDE4ED;
+      --card-bg:    #FFFFFF;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--charcoal);
+      line-height: 1.7;
+    }
+
+    a { color: var(--sky); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── COVER ───────────────────────────────────── */
+    .cover {
+      background: var(--navy);
+      color: white;
+      padding: 80px 60px 70px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cover::before {
+      content: '';
+      position: absolute;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(91,155,213,0.12), transparent 70%);
+      top: -160px; right: -80px;
+      pointer-events: none;
+    }
+
+    .cover-tag {
+      font-size: 11px;
+      letter-spacing: 4px;
+      color: var(--sky);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .cover h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(40px, 6vw, 72px);
+      font-weight: 300;
+      line-height: 1.1;
+      margin-bottom: 12px;
+      color: #FFFFFF;
+    }
+
+    .cover-subtitle {
+      font-size: 15px;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 8px;
+      font-weight: 400;
+    }
+
+    .cover-location {
+      font-size: 13px;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 36px;
+    }
+
+    .lang-pills {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .pill {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.8);
+      padding: 5px 16px;
+      border-radius: 100px;
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+
+    /* ── LAYOUT ──────────────────────────────────── */
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 64px 40px 100px;
+    }
+
+    .section {
+      margin-bottom: 60px;
+    }
+
+    .section-tag {
+      font-size: 10px;
+      letter-spacing: 4px;
+      color: var(--sky);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(26px, 3.5vw, 38px);
+      font-weight: 400;
+      color: var(--navy);
+      margin-bottom: 32px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* ── ABOUT ───────────────────────────────────── */
+    .about-text {
+      font-size: 15px;
+      color: #4A5568;
+      line-height: 1.85;
+      max-width: 740px;
+    }
+
+    /* ── EXPERIENCE CARDS ────────────────────────── */
+    .exp-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 32px;
+      margin-bottom: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .exp-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--navy-mid), var(--sky));
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    .exp-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    .exp-date {
+      font-size: 12px;
+      color: var(--muted);
+      background: var(--bg);
+      padding: 3px 10px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+
+    .exp-company {
+      font-size: 13px;
+      color: var(--sky);
+      margin-bottom: 14px;
+      font-style: italic;
+    }
+
+    .exp-card ul {
+      padding-left: 18px;
+    }
+
+    .exp-card ul li {
+      font-size: 14px;
+      color: #4A5568;
+      margin-bottom: 5px;
+      line-height: 1.65;
+    }
+
+    /* ── SKILLS ──────────────────────────────────── */
+    .skills-group {
+      margin-bottom: 20px;
+    }
+
+    .skills-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .skills-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .skill-tag {
+      background: var(--white);
+      border: 1px solid var(--border);
+      color: var(--charcoal);
+      padding: 5px 14px;
+      border-radius: 6px;
+      font-size: 13px;
+    }
+
+    /* ── TWO COLUMN ──────────────────────────────── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    @media (max-width: 620px) {
+      .two-col { grid-template-columns: 1fr; }
+      .cover { padding: 50px 28px; }
+      main { padding: 40px 20px 80px; }
+    }
+
+    /* ── LANGUAGES ───────────────────────────────── */
+    .lang-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
+    }
+
+    .lang-row:last-child { border-bottom: none; }
+
+    .lang-name { font-weight: 600; color: var(--navy); }
+    .lang-level { color: var(--muted); font-style: italic; }
+
+    /* ── EDUCATION ───────────────────────────────── */
+    .edu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 6px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .edu-item:last-child { border-bottom: none; }
+    .edu-school { font-weight: 600; color: var(--navy); font-size: 14px; }
+    .edu-degree { color: var(--muted); font-size: 13px; margin-top: 2px; }
+    .edu-date { font-size: 12px; color: var(--muted); }
+
+    /* ── CONTACT ─────────────────────────────────── */
+    .contact-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .contact-item {
+      font-size: 14px;
+      color: #4A5568;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .contact-label {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      width: 70px;
+      flex-shrink: 0;
+    }
+
+    /* ── FOOTER ──────────────────────────────────── */
+    footer {
+      text-align: center;
+      padding: 28px;
+      font-size: 12px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      background: var(--white);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- COVER -->
+  <header class="cover">
+    <div class="cover-tag">Portfolio — AI Evaluation & Business Consulting</div>
+    <h1>Vladimir Rujin</h1>
+    <div class="cover-subtitle">AI Evaluation Specialist &amp; Business Consultant</div>
+    <div class="cover-location">Montreal, Quebec, Canada &nbsp;·&nbsp; Remote</div>
+    <div class="lang-pills">
+      <span class="pill">English — Native</span>
+      <span class="pill">French — Native</span>
+      <span class="pill">Russian — Native</span>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ABOUT -->
+    <section class="section">
+      <div class="section-tag">Introduction</div>
+      <h2 class="section-title">Professional Summary</h2>
+      <p class="about-text">
+        Strategic and results-driven professional with 5+ years of experience in sales consulting, business development, and structured analytical work. Founded and scaled a revenue growth agency serving SMB clients across multiple industries. Proven track record of designing performance frameworks, evaluating business systems, and delivering measurable outcomes.
+        <br><br>
+        Trilingual in English, French, and Russian — with professional-level written and verbal communication in all three languages. Brings a consultant's precision and a founder's accountability to every engagement. Accuracy and structured thinking take priority over speed.
+      </p>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="section">
+      <div class="section-tag">Career</div>
+      <h2 class="section-title">Work Experience</h2>
+
+      <div class="exp-card">
+        <div class="exp-header">
+          <div class="exp-title">Founder &amp; Head of Sales Agency</div>
+          <div class="exp-date">Jan 2024 — Present</div>
+        </div>
+        <div class="exp-company">Independent Sales &amp; Growth Consulting Agency · Singapore / Remote</div>
+        <ul>
+          <li>Founded and scaled a consulting agency focused on revenue growth for SMB clients across multiple industries</li>
+          <li>Increased client monthly revenue from $10K–$40K to $150K–$200K through structured sales system implementation</li>
+          <li>Designed customer acquisition strategies including funnel architecture, sales scripts, and lead management processes</li>
+          <li>Built KPI frameworks and forecasting systems to track, measure, and improve sales performance</li>
+          <li>Partnered directly with business owners and senior stakeholders, delivering strategic advisory at C-suite level</li>
+        </ul>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-header">
+          <div class="exp-title">Freelance Marketing &amp; Lead Generation Specialist</div>
+          <div class="exp-date">Jan 2019 — Jan 2024</div>
+        </div>
+        <div class="exp-company">Self-Employed · Remote</div>
+        <ul>
+          <li>Built scalable lead generation systems using paid acquisition, landing pages, and email sequences for SMB clients</li>
+          <li>Designed and deployed end-to-end marketing funnels to generate qualified, predictable pipeline flow</li>
+          <li>Improved client conversion rates through optimization of user journeys and customer touchpoints</li>
+          <li>Evaluated and reported on campaign performance using Google Analytics and CRM platforms</li>
+        </ul>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-header">
+          <div class="exp-title">Independent Reseller &amp; Product Restoration Entrepreneur</div>
+          <div class="exp-date">2017 — 2019</div>
+        </div>
+        <div class="exp-company">Self-Employed · Local Market</div>
+        <ul>
+          <li>Built and operated a profitable resale business focused on musical instruments, achieving margins of 200–300%</li>
+          <li>Managed full business cycle: sourcing, pricing strategy, refurbishment coordination, and sales execution</li>
+          <li>Developed commercial acumen in pricing, negotiation, and opportunity identification</li>
+        </ul>
+      </div>
+
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section">
+      <div class="section-tag">Capabilities</div>
+      <h2 class="section-title">Skills</h2>
+
+      <div class="skills-group">
+        <div class="skills-label">Analytical &amp; Evaluation</div>
+        <div class="skills-tags">
+          <span class="skill-tag">Critical Thinking</span>
+          <span class="skill-tag">Structured Evaluation</span>
+          <span class="skill-tag">AI Output Review</span>
+          <span class="skill-tag">Content Quality Rating</span>
+          <span class="skill-tag">Search Relevance Evaluation</span>
+          <span class="skill-tag">Data-Driven Decision Making</span>
+        </div>
+      </div>
+
+      <div class="skills-group">
+        <div class="skills-label">Sales &amp; Business</div>
+        <div class="skills-tags">
+          <span class="skill-tag">Consultative Selling</span>
+          <span class="skill-tag">Revenue Operations</span>
+          <span class="skill-tag">Sales Funnel Optimization</span>
+          <span class="skill-tag">Lead Generation</span>
+          <span class="skill-tag">KPI Frameworks</span>
+          <span class="skill-tag">Stakeholder Engagement</span>
+          <span class="skill-tag">Negotiation</span>
+        </div>
+      </div>
+
+      <div class="skills-group">
+        <div class="skills-label">Tools</div>
+        <div class="skills-tags">
+          <span class="skill-tag">Salesforce</span>
+          <span class="skill-tag">HubSpot</span>
+          <span class="skill-tag">Google Analytics</span>
+          <span class="skill-tag">Notion</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- LANGUAGES + EDUCATION -->
+    <div class="two-col">
+
+      <section class="section">
+        <div class="section-tag">Languages</div>
+        <h2 class="section-title">Languages</h2>
+        <div class="lang-row">
+          <span class="lang-name">English</span>
+          <span class="lang-level">Native-level</span>
+        </div>
+        <div class="lang-row">
+          <span class="lang-name">French</span>
+          <span class="lang-level">Native-level</span>
+        </div>
+        <div class="lang-row">
+          <span class="lang-name">Russian</span>
+          <span class="lang-level">Native</span>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-tag">Education</div>
+        <h2 class="section-title">Education</h2>
+        <div class="edu-item">
+          <div>
+            <div class="edu-school">Collège André-Laurendeau</div>
+            <div class="edu-degree">DEC — Business &amp; Commerce</div>
+          </div>
+          <div class="edu-date">2021 — 2023</div>
+        </div>
+        <div class="edu-item">
+          <div>
+            <div class="edu-school">High School Diploma</div>
+            <div class="edu-degree">Montreal, Quebec, Canada</div>
+          </div>
+          <div class="edu-date">2021</div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- CONTACT -->
+    <section class="section">
+      <div class="section-tag">Get in Touch</div>
+      <h2 class="section-title">Contact</h2>
+      <div class="contact-grid">
+        <div class="contact-item">
+          <span class="contact-label">Email</span>
+          <a href="mailto:rujinvladimir12@gmail.com">rujinvladimir12@gmail.com</a>
+        </div>
+        <div class="contact-item">
+          <span class="contact-label">LinkedIn</span>
+          <a href="https://www.linkedin.com/in/vladimir-rujin-396937250/" target="_blank">linkedin.com/in/vladimir-rujin-396937250</a>
+        </div>
+        <div class="contact-item">
+          <span class="contact-label">Location</span>
+          <span>Montreal, Quebec, Canada · Available remotely worldwide</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    &copy; 2026 Vladimir Rujin &nbsp;·&nbsp; AI Evaluation Specialist &amp; Business Consultant
+  </footer>
+
+</body>
+</html>
